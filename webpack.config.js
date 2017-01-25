@@ -3,6 +3,13 @@ module.exports = {
 	output: {
     	filename: "public/bundle.js"
   	},
+  	resolve: {
+  		root: __dirname,
+  		alias: {
+  			routes: 'app/config/routes.js'
+  		},
+  		extensions: ['', '.js', '.jsx']
+  	},
   	module: {
   		loaders: [
   			{
@@ -10,7 +17,7 @@ module.exports = {
   				include: /app/,
 		        loader: "babel",
 		        query: {
-		        	presets: ["react", "es2015"]
+		        	presets: ["react", "es2015", "stage-0"]
 		        }
 		    }
 		]
