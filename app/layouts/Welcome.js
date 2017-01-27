@@ -1,11 +1,9 @@
-var React = require('react');
+import React, { Component } from 'react';
 
-var Welcome = React.createClass({
-	render: function() {
+export default class Welcome extends Component {
+	render() {
 		return (
-			<h3>Welcome to the employee portal!</h3>
-		)
+			<h3>Welcome to the employee portal!</h3>		
+		);
 	}
-});
-
-module.exports = Welcome;
+}
