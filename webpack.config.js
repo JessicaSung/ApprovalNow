@@ -6,8 +6,9 @@ module.exports = {
   	resolve: {
   		root: __dirname,
   		alias: {
-  			routes: 'app/config/routes.js'
-        Main: 'app/components/Main.js'
+        Main: 'app/components/Main.js',
+  			routes: 'app/config/routes.js',
+        Welcome: 'app/layouts/Welcome.js'
   		},
   		extensions: ['', '.js', '.jsx']
   	},
