@@ -1,3 +1,21 @@
-/*body {
-	background-color: blue;
-}*/
+body {
+	background-color: #E0FFFF;
+}
+
+.floatRight {
+	float: right;
+}
+
+.pageBlock {
+	background-color: white;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	overflow: auto;
+	padding: 20px;
+}
+
+.pageWidth {
+	margin: auto;
+	width: 70%;
+}

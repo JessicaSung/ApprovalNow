@@ -7,7 +7,7 @@ export default class Main extends Component {
 		return (
 			<div className="container">
 				<Nav />
-				<div style={{clear: 'both'}}>
+				<div  className="pageWidth" style={{clear: 'both'}}>
 					{this.props.children}
 				</div>				
 			</div>		

@@ -9,6 +9,7 @@ module.exports = {
         Main: 'app/components/Main.js',
         Nav: 'app/components/Nav.js',
   			routes: 'app/config/routes.js',
+        SupplyForm: 'app/layouts/SupplyForm.js',
         Welcome: 'app/layouts/Welcome.js'
   		},
   		extensions: ['', '.js', '.jsx']
