@@ -5,7 +5,7 @@ export default class SupplyForm extends Component {
 		return (
 			<div className="pageBlock">
 				<p>Inventory Form</p>
-				<button className="floatRight">Add Items</button>
+				<button className="floatRight btn btn-primary btn-lg raised">Add Items</button>
 			</div>
 		);
 	}
