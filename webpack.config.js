@@ -6,6 +6,7 @@ module.exports = {
   	resolve: {
   		root: __dirname,
   		alias: {
+        Inventory: 'app/components/Inventory.js',
         Main: 'app/components/Main.js',
         Nav: 'app/components/Nav.js',
   			routes: 'app/config/routes.js',
