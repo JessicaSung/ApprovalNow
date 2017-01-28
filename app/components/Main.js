@@ -7,7 +7,7 @@ export default class Main extends Component {
 		return (
 			<div className="container">
 				<Nav />
-				<div  className="pageWidth" style={{clear: 'both'}}>
+				<div  className="pageNarrow" style={{clear: 'both'}}>
 					{this.props.children}
 				</div>				
 			</div>		

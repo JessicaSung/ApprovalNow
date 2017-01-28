@@ -15,7 +15,11 @@ body {
 	padding: 20px;
 }
 
-.pageWidth {
+.pageNarrow {
 	margin: auto;
 	width: 70%;
+}
+
+.pageWide {
+	margin: 20px;
 }
