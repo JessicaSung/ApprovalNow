@@ -8,11 +8,11 @@ export default class LoginSignIn extends Component {
 				<form method="post">
 					<div className="form-group">
 						<label>User ID</label>
-						<input type="text" className="form-control" placeholder="User ID" />
+						<input type="text" className="form-control" placeholder="FX000001" />
 					</div>
 					<div className="form-group">
 						<label>Password</label>
-						<input type="password" className="form-control" placeholder="Password" />
+						<input type="password" className="form-control" />
 					</div>
 					<button type="submit" className="btn btn-primary">Submit</button>
 				</form>
