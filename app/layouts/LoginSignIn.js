@@ -7,8 +7,8 @@ export default class LoginSignIn extends Component {
 				<h3>Account Login</h3><br />
 				<form method="post">
 					<div className="form-group">
-						<label>User ID</label>
-						<input type="text" className="form-control" placeholder="FX000001" />
+						<label>Username</label>
+						<input type="text" className="form-control" />
 					</div>
 					<div className="form-group">
 						<label>Password</label>
