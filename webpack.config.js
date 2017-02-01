@@ -7,6 +7,10 @@ module.exports = {
   		root: __dirname,
   		alias: {
         Inventory: 'app/components/Inventory.js',
+        LoginSignIn: 'app/layouts/LoginSignIn.js',
+        LoginSignOut: 'app/layouts/LoginSignOut.js',
+        LoginSignUp: 'app/layouts/LoginSignUp.js',
+        LoginSignUpSuccessful: 'app/layouts/LoginSignUpSuccessful.js',
         Main: 'app/components/Main.js',
         Nav: 'app/components/Nav.js',
   			routes: 'app/config/routes.js',
