@@ -6,6 +6,12 @@ body {
 	float: right;
 }
 
+.nav>li>a:hover {
+	background-color: #286090;
+	color: white;
+	font-weight: bold;
+}
+
 .pageBlock {
 	background-color: white;
 	border-style: solid;
