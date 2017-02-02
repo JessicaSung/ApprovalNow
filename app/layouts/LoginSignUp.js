@@ -15,6 +15,10 @@ export default class LoginSignUp extends Component {
 						<input type="email" className="form-control" placeholder="first.last@foxconn.com" />
 					</div>
 					<div className="form-group">
+						<label>Choose your username</label>
+						<input type="text" className="form-control" />
+					</div>
+					<div className="form-group">
 						<label>Create a password</label>
 						<input type="password" className="form-control" />
 					</div>
