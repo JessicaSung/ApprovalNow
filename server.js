@@ -27,7 +27,7 @@ app.use(express.static('public'));
 // MONGOOSE DATABASE CONFIGURATION
 // ===============================================
 // local MongoDB
-const databaseuri = 'mongodb://localhost/reddit';
+const databaseuri = 'mongodb://localhost/approveNow';
 // if Heroku mLab exists, use Heroku database
 if (process.env.MONGODB_URI) {
 	mongoose.connect(process.env.MONGODB_URI);
@@ -46,6 +46,9 @@ db.once('open', function() {
 	console.log('Mongoose connection successful.');
 });
 
+// routing -------------------------------------------
+var auth = require('./api/routes/auth');
+app.use('/auth', auth);
 
 // START SERVER LISTEN
 // ===============================================

@@ -1,0 +1,3 @@
+use approveNow
+db.createCollection('users');
+show collections

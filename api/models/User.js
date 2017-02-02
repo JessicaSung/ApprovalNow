@@ -5,10 +5,10 @@ var UserSchema = mongoose.Schema({
 		type: String,
 		index:true
 	},
-	employee_id:{
+	email:{
 		type:String,
 	},
-	email: {
+	username: {
 		type: String,
 	},
 	password: {
