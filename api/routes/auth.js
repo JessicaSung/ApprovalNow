@@ -11,19 +11,20 @@ var User = require('../models/User');
 // });
 
 router.post('/register', function(req,res){
+	console.log(req);
 
 	var name=req.body.name;
 	var email=req.body.email;
 	var username=req.body.username;
 	var password=req.body.password;
-	var password2=req.body.password2;
+	// var password2=req.body.password2;
 
 	var newUser = new User({
 		name: name,
 		email: email,
 		username:username,
 		password: password,
-		password2: password2
+		// password2: password2
 	})
 
 	newUser.save(function(err, doc) {
