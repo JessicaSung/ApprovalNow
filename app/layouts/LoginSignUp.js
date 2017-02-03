@@ -20,11 +20,19 @@ export default class LoginSignUp extends Component {
 		});
 	}
 
-	handleSubmit() {
-		return axios.post('/register', { name: name });
-		return axios.post('/register', { email: email });
-		return axios.post('/register', { username: username });
-		return axios.post('/register', { password: password });
+	handleSubmit(event) {
+		event.preventDefault();
+
+		return axios.post('/auth/register', { 
+			name: this.state.name, 
+			email: this.state.email, 
+			username: this.state.username, 
+			password: this.state.password })
+			.then(function(response) {
+				console.log(response);
+			}).catch(function(err) {
+				console.error(err);
+			});
 	}
 
 	render() {
