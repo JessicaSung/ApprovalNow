@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-//from rick
 import {withRouter} from 'react-router';
 
 
