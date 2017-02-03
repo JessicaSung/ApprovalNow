@@ -16,6 +16,7 @@ const app = express();
 
 // body-parser to make the data easier to work with; morgan for logging
 app.use(logger('dev'));
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // makes public folder a static directory

@@ -24,6 +24,7 @@ export default class LoginSignUp extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
+		console.log(this.state);
 
 		return axios.post('/auth/register', { 
 			name: this.state.name, 
