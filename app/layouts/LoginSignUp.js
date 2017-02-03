@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+//from rick
+import {withRouter} from 'react-router';
+
 
 export default class LoginSignUp extends Component {
 	constructor() {
@@ -28,11 +31,12 @@ export default class LoginSignUp extends Component {
 			email: this.state.email, 
 			username: this.state.username, 
 			password: this.state.password })
-			.then(function(response) {
-				console.log(response);
-			}).catch(function(err) {
-				console.error(err);
-			});
+		.then((response) => {
+			console.log(response);
+			this.props.router.push('signupsuccessful');
+		}).catch(function(err) {
+			console.error(err);
+		});
 	}
 
 	render() {
