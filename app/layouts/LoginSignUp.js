@@ -30,8 +30,8 @@ export default class LoginSignUp extends Component {
 			name: this.state.name, 
 			email: this.state.email, 
 			username: this.state.username, 
-			password: this.state.password })
-		.then((response) => {
+			password: this.state.password 
+		}).then((response) => {
 			console.log(response);
 			this.props.router.push('signupsuccessful');
 		}).catch(function(err) {
