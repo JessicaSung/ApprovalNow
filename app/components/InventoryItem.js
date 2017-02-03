@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import Nav from 'Nav';
 
-export default class Main extends Component {
+export default class InventoryItem extends Component {
 	render() {
-		console.log("main...");
 		return (
 			<div className="container">
 				<Nav />

@@ -1,28 +1,79 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class LoginSignUp extends Component {
+	constructor() {
+		super();
+		this.state = {
+			name: '',
+			email: '',
+			username: '',
+			password: ''
+		}
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	handleChange(event) {
+		this.setState({
+			[event.target.name]: event.target.value
+		});
+	}
+
+	handleSubmit() {
+		return axios.post('/register', { name: name });
+		return axios.post('/register', { email: email });
+		return axios.post('/register', { username: username });
+		return axios.post('/register', { password: password });
+	}
+
 	render() {
 		return (
 			<div className="pageBlock">
 				<h3>Create your account</h3><br />
-				<form method="post">
+				<form>
 					<div className="form-group">
 						<label>Name</label>
-						<input type="text" className="form-control" placeholder="First Last" />
+						<input 
+							name="name"
+							placeholder="First Last" 
+							type="text" 
+							className="form-control" 							
+							value={this.state.name} 
+							onChange={this.handleChange} />
 					</div>
 					<div className="form-group">
 						<label>Email Address</label>
-						<input type="email" className="form-control" placeholder="first.last@foxconn.com" />
+						<input 
+							name="email"
+							placeholder="first.last@foxconn.com" 
+							type="email" 
+							className="form-control" 							
+							value={this.state.email} 
+							onChange={this.handleChange} />
 					</div>
 					<div className="form-group">
 						<label>Choose your username</label>
-						<input type="text" className="form-control" />
+						<input 
+							name="username"
+							type="text" 
+							className="form-control" 							
+							value={this.state.username} 
+							onChange={this.handleChange} />
 					</div>
 					<div className="form-group">
 						<label>Create a password</label>
-						<input type="password" className="form-control" />
+						<input 
+							name="password"
+							type="password" 
+							className="form-control" 							
+							value={this.state.password} 
+							onChange={this.handleChange} />
 					</div>
-					<button type="submit" className="btn btn-primary">Submit</button>
+					<button 
+						type="submit" 
+						className="btn btn-primary" 
+						onClick={this.handleSubmit}>Submit</button>
 				</form>
 			</div>
 		);

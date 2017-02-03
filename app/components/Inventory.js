@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 
+var state = {
+	inventory: [
+	     {name: "Pencil", id: 1},
+	     {name: "Paper", id: 2}
+	]
+}
+
 export default class Inventory extends Component {
 	render() {
 		return (
@@ -15,7 +22,13 @@ export default class Inventory extends Component {
 								<th>Item Name</th>
 								<th>Quantity</th>											
 							</thead>
-							<tbody id="supplyItem"></tbody>
+							<tbody id="supplyItem">
+								{this.state.inventory.map(function(item) {
+									return (
+										<InventoryItem item={item} />
+									)
+								})}
+							</tbody>
 						</table>
 		  			</div>
 				</div>
