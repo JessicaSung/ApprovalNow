@@ -8,8 +8,8 @@ import LoginSignUpSuccessful from 'LoginSignUpSuccessful';
 import Main from 'Main';
 import SupplyForm from 'SupplyForm';
 import Welcome from 'Welcome';
-
-module.exports = (
+export default (
+// module.exports = (
 	<Router history={hashHistory}>
 		<Route path="/" component={Main}>
 			<Route path="supplyform" component={SupplyForm} />

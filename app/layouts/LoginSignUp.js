@@ -4,13 +4,13 @@ import {withRouter} from 'react-router';
 
 
 export default class LoginSignUp extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			name: '',
 			email: '',
 			username: '',
-			password: ''
+			password: '',
 		}
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);

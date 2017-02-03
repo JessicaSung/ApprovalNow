@@ -49,7 +49,7 @@ db.once('open', function() {
 });
 
 // routing -------------------------------------------
-var auth = require('./api/routes/auth');
+const auth = require('./api/routes/auth');
 app.use('/auth', auth);
 
 // START SERVER LISTEN
