@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 var UserSchema = mongoose.Schema({
 	name: {
 		type: String,
-		index:true
+		index: true
 	},
-	email:{
-		type:String,
+	email: {
+		type: String,
 	},
 	username: {
 		type: String,
@@ -14,18 +14,19 @@ var UserSchema = mongoose.Schema({
 	password: {
 		type: String,
 	}
-
 });
-
 
 // module.exports.createUser= function(newUser, callback){
 // 	var bcrypt = require('bcryptjs');
 // 	bcrypt.genSalt(10, function(err, salt) {
-//     bcrypt.hash(newUser.password, salt, function(err, hash) {
-//          newUser.password = hash;
-//          newUsser.save(callback);
-//     });
-// });
-
+// 	    bcrypt.hash(newUser.password, salt, function(err, hash) {
+// 	         newUser.password = hash;
+// 	         newUsser.save(callback);
+// 	    });
+// 	});
 // }
-var User = module.exports = mongoose.model('User', UserSchema);
+
+
+var User = mongoose.model('User', UserSchema);
+
+module.exports = User;
