@@ -22,6 +22,26 @@ export default class LoginSignUp extends Component {
 		});
 	}
 
+	validateEmail(email) {
+	    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	    return re.test(email);
+	}
+
+	validateInputs() {
+		const checkList = ['name', 'email', 'username', 'password'];
+		let isValid = true;
+		checkList.forEach((key) => {
+			if (this.state[key].replace(/ /g,'') === '') {
+				isValid = false
+			}
+
+			if (key === 'email') {
+				isValid = this.validateEmail(this.state[key]);
+			}
+		})
+		return isValid
+	}
+
 	handleSubmit(event) {
 		event.preventDefault();
 		console.log(this.state);
@@ -40,6 +60,8 @@ export default class LoginSignUp extends Component {
 	}
 
 	render() {
+
+		console.log(this.validateInputs());
 		return (
 			<div className="pageBlock">
 				<h3>Create your account</h3><br />
@@ -53,6 +75,7 @@ export default class LoginSignUp extends Component {
 							className="form-control" 							
 							value={this.state.name} 
 							onChange={this.handleChange} />
+					
 					</div>
 					<div className="form-group">
 						<label>Email Address</label>
@@ -84,8 +107,12 @@ export default class LoginSignUp extends Component {
 					</div>
 					<button 
 						type="submit" 
-						className="btn btn-primary" 
-						onClick={this.handleSubmit}>Submit</button>
+						className="btn btn-primary"
+						disabled={!this.validateInputs()} 
+						onClick={this.handleSubmit}
+					>
+						Submit
+					</button>
 				</form>
 			</div>
 		);

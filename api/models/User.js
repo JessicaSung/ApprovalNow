@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const bcrypt= require('bcryptjs');
 var UserSchema = mongoose.Schema({
 	name: {
 		type: String,
@@ -16,17 +16,38 @@ var UserSchema = mongoose.Schema({
 	}
 });
 
-// module.exports.createUser= function(newUser, callback){
-// 	var bcrypt = require('bcryptjs');
-// 	bcrypt.genSalt(10, function(err, salt) {
-// 	    bcrypt.hash(newUser.password, salt, function(err, hash) {
-// 	         newUser.password = hash;
-// 	         newUsser.save(callback);
-// 	    });
-// 	});
+
+var User = module.exports = mongoose.model('User', UserSchema);
+module.exports.createUser= function(newUser, callback){
+	var bcrypt = require('bcryptjs');
+	bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.hash(newUser.password, salt, function(err, hash) {
+         newUser.password = hash;
+         newUser.save(callback);
+    });
+});
+
+}
+
+module.exports.getUserByUsername=function(username, callback){
+	var query = {"username": username};
+	User.findOne(query, callback);
+}
+
+// module.exports.getUserByID=function(id, callback){
+// 	User.findById(id, callback);
 // }
 
+module.exports.comparePassword = function(candidatePassword, hash, callback){
+	bcrypt.compare(candidatePassword,hash, function(err, isMatch){
+		if(err) { callback(err, false) }
+		callback(null, isMatch);
+	});
+}
 
-var User = mongoose.model('User', UserSchema);
+// ====================================================
+// Old code to help with refactoring during next commit
+// var User = mongoose.model('User', UserSchema);
 
-module.exports = User;
+// module.exports = User;
+// ====================================================

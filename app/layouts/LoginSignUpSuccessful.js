@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 export default class LoginSignUpSuccessful extends Component {
 	render() {
+		if (this.props.username === '') {
+			this.props.router.push('/');
+		}
 		return (
 			<div className="pageBlock">
 				<h3>You have successfully created an account.</h3>
