@@ -1,13 +1,26 @@
 import React, { Component } from 'react';
-
-var state = {
-	inventory: [
-	     {name: "Pencil", id: 1},
-	     {name: "Paper", id: 2}
-	]
-}
+import InventoryItem from 'InventoryItem';
 
 export default class Inventory extends Component {
+	constructor() {
+		super();
+		this.state = {
+			inventory: [
+			     {name: "Pencil", id: 1, qty: 0},
+			     {name: "Paper", id: 2, qty: 0}
+			]
+		}
+		this.handleChange = this.handleChange.bind(this);
+	}
+
+	handleChange(event) {
+		let newInventory = this.state.inventory;
+		newInventory[event.target.name].qty = event.target.value;
+		this.setState({
+			inventory: newInventory
+		});
+	}
+
 	render() {
 		return (
 			<div>
@@ -19,15 +32,13 @@ export default class Inventory extends Component {
 		  			<div className="panel-body">
 						<table className="table" id="supplyList">
 							<thead>
-								<th>Item Name</th>
-								<th>Quantity</th>											
+								<tr>
+									<th>Item Name</th>
+									<th>Quantity</th>
+								</tr>																			
 							</thead>
-							<tbody id="supplyItem">
-								{this.state.inventory.map(function(item) {
-									return (
-										<InventoryItem item={item} />
-									)
-								})}
+							<tbody id="supplyItem">								
+								{this.state.inventory.map((item, index) => <InventoryItem key={item.id} item={item} index={index} handleChange={this.handleChange} />)}
 							</tbody>
 						</table>
 		  			</div>

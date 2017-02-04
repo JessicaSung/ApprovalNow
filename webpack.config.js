@@ -7,6 +7,7 @@ module.exports = {
   		root: __dirname,
   		alias: {
         Inventory: 'app/components/Inventory.js',
+        InventoryItem: 'app/components/InventoryItem.js',
         LoginSignIn: 'app/layouts/LoginSignIn.js',
         LoginSignOut: 'app/layouts/LoginSignOut.js',
         LoginSignUp: 'app/layouts/LoginSignUp.js',

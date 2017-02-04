@@ -3,12 +3,19 @@ import React, { Component } from 'react';
 export default class InventoryItem extends Component {
 	render() {
 		return (
-			<div className="container">
-				<Nav />
-				<div className="pageNarrow" style={{clear: 'both'}}>
-					{this.props.children}
-				</div>				
-			</div>		
+			<tr>
+				<td>
+					{this.props.item.name}
+				</td>
+				<td>
+					<input 
+						name = {this.props.index}
+						type = "number" 
+						value = {this.props.item.qty}
+						onChange = {this.props.handleChange}
+					/>
+				</td>
+			</tr>
 		);
 	}
 }
