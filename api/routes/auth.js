@@ -1,6 +1,6 @@
-var express=require('express');
-var router=express.Router();
-var User = require('../models/User');
+import express from 'express';
+import User from 'User';
+const router = express.Router();
 
 // router.get('/register', function(req,res){
 // 	res.render('register');
@@ -30,4 +30,4 @@ router.post('/register', function(req,res){
 	});
 });
 
-module.exports=router;
+module.exports = router;
