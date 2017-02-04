@@ -1,20 +1,17 @@
 // DEPENDENCIES
 // ===============================================
-
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const expressValidator = require ('express-validator');
-const flash = require('connect-flash');
-const session=require('express-session');
-const passport=require('passport');
-const LocalStrategy=require('passport-local').Strategy;
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const express = require('express');
+const expressValidator = require ('express-validator');
+// const flash = require('connect-flash');
+// const LocalStrategy=require('passport-local').Strategy;
 const logger = require('morgan');
 const mongo=require('mongodb');
 const mongoose = require('mongoose');
-
-
+// const passport=require('passport');
+// const path = require('path');
+// const session=require('express-session');
 
 const PORT = process.env.PORT || 3000;
 
@@ -29,19 +26,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-
 // makes public folder a static directory
 app.use(express.static('public'));
 
-// Express Session
-app.use(session({
-	secret: 'secret',
-	saveUninitialized: true,
-	resave: true
-}));
+// ===============================================
+// SESSION STORAGE
+// // Express Session
+// app.use(session({
+// 	secret: 'secret',
+// 	saveUninitialized: true,
+// 	resave: true
+// }));
 
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
+// ===============================================
 
 // Express Validator
 app.use(expressValidator({
@@ -61,16 +60,20 @@ app.use(expressValidator({
   }
 }));
 
-// Connect Flash
-app.use(flash());
+// ===============================================
+// SHOWS ERROR MESSAGES
+// // Connect Flash
+// app.use(flash());
 
-// Global Vars
-app.use(function(req, res,next){
-	res.locals.success_msg = req.flash('success_msg');
-	res.locals.error_msg = req.flash('error_msg');
-	res.locals.error = req.flash('error');
-	next();
-});
+// // Global Vars
+// app.use(function(req, res,next){
+// 	res.locals.success_msg = req.flash('success_msg');
+// 	res.locals.error_msg = req.flash('error_msg');
+// 	res.locals.error = req.flash('error');
+// 	next();
+// });
+// ===============================================
+
 
 // MONGOOSE DATABASE CONFIGURATION
 // ===============================================
@@ -98,6 +101,7 @@ db.once('open', function() {
 // routing -------------------------------------------
 var auth = require('./api/routes/auth');
 app.use('/auth', auth);
+
 
 // START SERVER LISTEN
 // ===============================================
