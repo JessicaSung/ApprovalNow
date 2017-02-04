@@ -1,5 +1,5 @@
-import express from 'express';
-import User from 'User';
+const express = require('express');
+const User = require('../models/User');
 const router = express.Router();
 
 // router.get('/register', function(req,res){
@@ -10,7 +10,7 @@ const router = express.Router();
 // 	res.render('login');
 // });
 
-router.post('/register', function(req,res){
+router.post('/register', (req,res) => {
 	console.log(req.body);
 
 	// var name=req.body.name;
@@ -19,9 +19,9 @@ router.post('/register', function(req,res){
 	// var password=req.body.password;
 	// var password2=req.body.password2;
 
-	var newUser = new User(req.body)
+	const newUser = new User(req.body)
 
-	newUser.save(function(err, doc) {
+	newUser.save((err, doc) => {
 		if (err) {
 			res.send(err);
 		} else {
