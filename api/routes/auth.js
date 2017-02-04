@@ -6,6 +6,13 @@ var LocalStrategy = require('passport-local').Strategy;
 
 
 
+// ====================================
+// Old code to help with refactoring during next commit
+// const express = require('express');
+// const User = require('../models/User');
+// const router = express.Router();
+// ====================================
+
 // router.get('/register', function(req,res){
 // 	res.render('register');
 // });
@@ -14,7 +21,7 @@ var LocalStrategy = require('passport-local').Strategy;
 // 	res.render('login');
 // });
 
-router.post('/register', function(req,res){
+router.post('/register', (req,res) => {
 	console.log(req.body);
     var newUser = new User(req.body);
     User.createUser(newUser, function(err, savedUser) {
@@ -58,6 +65,7 @@ router.post('/register', function(req,res){
 //   });
 // });
 
+
 router.post('/login', function(req, res) {
   const username = req.body.username;
   const password = req.body.password;
@@ -74,3 +82,19 @@ router.post('/login', function(req, res) {
 
 
 module.exports=router;
+
+// ====================================
+// Old code to help with refactoring during next commit
+// 	const newUser = new User(req.body)
+
+// 	newUser.save((err, doc) => {
+// 		if (err) {
+// 			res.send(err);
+// 		} else {
+// 			res.send(doc);
+// 		}
+// 	});
+// });
+
+// module.exports = router;
+// ====================================

@@ -15,6 +15,7 @@ module.exports = {
         Nav: 'app/components/Nav.js',
   			routes: 'app/config/routes.js',
         SupplyForm: 'app/layouts/SupplyForm.js',
+        User: 'api/models/User.js',
         Welcome: 'app/layouts/Welcome.js'
   		},
   		extensions: ['', '.js', '.jsx']

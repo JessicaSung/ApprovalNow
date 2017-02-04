@@ -3,10 +3,10 @@ const bcrypt= require('bcryptjs');
 var UserSchema = mongoose.Schema({
 	name: {
 		type: String,
-		index:true
+		index: true
 	},
-	email:{
-		type:String,
+	email: {
+		type: String,
 	},
 	username: {
 		type: String,
@@ -14,7 +14,6 @@ var UserSchema = mongoose.Schema({
 	password: {
 		type: String,
 	}
-
 });
 
 
@@ -35,10 +34,9 @@ module.exports.getUserByUsername=function(username, callback){
 	User.findOne(query, callback);
 }
 
-module.exports.getUserByID=function(id, callback){
-	
-	User.findById(id, callback);
-}
+// module.exports.getUserByID=function(id, callback){
+// 	User.findById(id, callback);
+// }
 
 module.exports.comparePassword = function(candidatePassword, hash, callback){
 	bcrypt.compare(candidatePassword,hash, function(err, isMatch){
@@ -46,3 +44,10 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
 		callback(null, isMatch);
 	});
 }
+
+// ====================================================
+// Old code to help with refactoring during next commit
+// var User = mongoose.model('User', UserSchema);
+
+// module.exports = User;
+// ====================================================
