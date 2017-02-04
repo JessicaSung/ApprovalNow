@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {withRouter} from 'react-router';
 
-
 export default class LoginSignUp extends Component {
 	constructor() {
 		super();
@@ -23,7 +22,7 @@ export default class LoginSignUp extends Component {
 	}
 
 	validateEmail(email) {
-	    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	    return re.test(email);
 	}
 
@@ -32,14 +31,14 @@ export default class LoginSignUp extends Component {
 		let isValid = true;
 		checkList.forEach((key) => {
 			if (this.state[key].replace(/ /g,'') === '') {
-				isValid = false
+				isValid = false;
 			}
 
 			if (key === 'email') {
 				isValid = this.validateEmail(this.state[key]);
 			}
 		})
-		return isValid
+		return isValid;
 	}
 
 	handleSubmit(event) {
@@ -60,7 +59,6 @@ export default class LoginSignUp extends Component {
 	}
 
 	render() {
-
 		console.log(this.validateInputs());
 		return (
 			<div className="pageBlock">

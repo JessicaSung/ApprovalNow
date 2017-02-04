@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-
 import axios from 'axios';
 import {withRouter} from 'react-router';
 
 export default class LoginSignIn extends Component {
-
 	constructor(name) {
 		super();
 		this.state = {
@@ -46,8 +44,8 @@ export default class LoginSignIn extends Component {
 			if (this.state[key].replace(/ /g,'') === '') {
 				isValid = false
 			}
-		})
-		return isValid
+		});
+		return isValid;
 	}
 
 	render() {

@@ -5,7 +5,6 @@ export default class Nav extends Component {
 	render() {
 		return (
 			<div className="pageNarrow">
-
 				<h3 style={{float: 'left'}}>Foxconn</h3>
 
 				<div className="header clearfix">
@@ -18,7 +17,6 @@ export default class Nav extends Component {
 			          </ul>
 			        </nav>
 	      		</div>
-
 			</div>		
 		);
 	}

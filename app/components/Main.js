@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Nav from 'Nav';
 
 export default class Main extends Component {
-
 	constructor() {
 		super();
 		this.state = {
@@ -18,10 +17,10 @@ export default class Main extends Component {
 	render() {
 		console.log("main...");
 		const childrenWithProps = React.Children.map(this.props.children,
-	     (child) => React.cloneElement(child, {
-	       username: this.state.username,
-	       onChangeUsername: this.onChangeUsername
-	     })
+	     	(child) => React.cloneElement(child, {
+		       username: this.state.username,
+		       onChangeUsername: this.onChangeUsername
+	     	})
 	    );
 		return (
 			<div className="container">
