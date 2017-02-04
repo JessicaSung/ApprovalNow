@@ -1,6 +1,10 @@
 var express=require('express');
 var router=express.Router();
 var User = require('../models/User');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+
 
 // router.get('/register', function(req,res){
 // 	res.render('register');
@@ -12,22 +16,61 @@ var User = require('../models/User');
 
 router.post('/register', function(req,res){
 	console.log(req.body);
-
-	// var name=req.body.name;
-	// var email=req.body.email;
-	// var username=req.body.username;
-	// var password=req.body.password;
-	// var password2=req.body.password2;
-
-	var newUser = new User(req.body)
-
-	newUser.save(function(err, doc) {
-		if (err) {
-			res.send(err);
-		} else {
-			res.send(doc);
-		}
-	});
+    var newUser = new User(req.body);
+    User.createUser(newUser, function(err, savedUser) {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        console.log('success');
+        res.send(savedUser);
+      }
+    })
 });
+
+// passport.use(new LocalStrategy(
+//   function(username, password, done) {
+//   	User.getUserByUsername(username,function(err, user){
+//   		// console.log(username);
+//   		if(err) throw err;
+//   		if(!user){
+//   			return done(null, false, {message: 'unknown user'});
+//   		}
+//   		User.comparePassword(password, user.password, function(err, isMatch){
+//   			// console.log(password);
+//   			// console.log(user.password);
+//   			if(err)throw err;
+//   			if(isMatch){
+//   				return done(null, user);	
+//   			} else {
+//   				return done(null, false, {message: 'Invalid password'});
+//   			}
+//   		});
+//   	});
+//   }));
+
+// passport.serializeUser(function(user, done) {
+//   done(null, user.id);
+// });
+
+// passport.deserializeUser(function(id, done) {
+//   User.getUserById(id, function(err, user) {
+//     done(err, user);
+//   });
+// });
+
+router.post('/login', function(req, res) {
+  const username = req.body.username;
+  const password = req.body.password;
+  const targetUser = User.getUserByUsername(username, function(err, user) {
+    if(err) { res.status(500).send(err) };
+    User.comparePassword(password, user.password, function(err, isMatch) {
+      if (err) { res.status(500).send(err) };
+      res.status(201).send({isMatch: isMatch});
+    })
+  });
+  console.log(req.body.username);
+});
+
+
 
 module.exports=router;
