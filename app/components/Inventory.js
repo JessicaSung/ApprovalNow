@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import InventoryItem from 'InventoryItem';
 
 export default class Inventory extends Component {
@@ -11,6 +12,13 @@ export default class Inventory extends Component {
 			]
 		}
 		this.handleChange = this.handleChange.bind(this);
+	}
+
+	componentDidMount() {
+		return axios.get("/#/supplyform").then((response) => {
+			console.log(response);
+
+		});
 	}
 
 	handleChange(event) {
