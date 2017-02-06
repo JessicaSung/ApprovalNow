@@ -11,7 +11,10 @@ const mongo = require('mongodb');
 const mongoose = require('mongoose');
 // const passport=require('passport');
 // const path = require('path');
+const Promise = require('bluebird');
 // const session=require('express-session');
+
+const Inventory = require('./api/models/Inventory.js');
 
 const PORT = process.env.PORT || 3000;
 
@@ -92,6 +95,7 @@ else {
 	mongoose.connect(databaseuri);
 }
 
+mongoose.Promise = Promise;
 const db = mongoose.connection;
 // if there is an error connecting to the database, show error
 db.on('error', function(error) {
@@ -107,13 +111,42 @@ db.once('open', function() {
 var auth = require('./api/routes/auth');
 app.use('/auth', auth);
 
+
 // Route for GET request
-app.get("/#/supplyform", function(req, res) {
-  // find and retrieve all records
-  Inventory.find({}).exec((err, doc) => {
-    if (err) { console.log(err) }
-    else { res.send(doc) }
-  });
+// app.get("/supplyform", function(req, res) {
+// 	console.log("hello")
+// 	// find and retrieve all records
+// 	Inventory.find({}).exec((err, doc) => {
+// 		if (err) { console.log(err) }
+// 		else { res.send(doc) }
+// 	});
+// });
+
+// app.get("/supplyform", function(req, res) {    
+//    // find and retrieve all records
+//    Inventory.find({}).exec((err, doc) => {
+// 		console.log('HELLO')
+//        if (err) { console.log(err)
+//            // res.send(doc)
+//        }
+//    });
+// });
+
+// app.get("/supplyform", function(req, res) {    
+//   // find and retrieve all records
+//   Inventory.find({}).exec((err, doc) => {
+//       if (err) { console.log(err)
+//           console.log(doc)
+//       }
+//   });
+// });
+
+app.get("/supplyform", function(req, res) {
+   // find and retrieve all records
+   Inventory.find({}).exec((err, doc) => {
+       if (err) { console.log(err) }
+       console.log(doc)
+   });
 });
 
 
