@@ -14,8 +14,10 @@ module.exports = {
         LoginSignUpSuccessful: 'app/layouts/LoginSignUpSuccessful.js',
         Main: 'app/components/Main.js',
         Nav: 'app/components/Nav.js',
+        PurchaseRequisition: 'app/components/PurchaseRequisition.js',
   			routes: 'app/config/routes.js',
         SupplyForm: 'app/layouts/SupplyForm.js',
+        SupplySelected: 'app/components/SupplySelected.js',
         User: 'api/models/User.js',
         Welcome: 'app/layouts/Welcome.js'
   		},
