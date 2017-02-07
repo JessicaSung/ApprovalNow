@@ -3,15 +3,18 @@
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express = require('express');
-const expressValidator = require ('express-validator');
+// const expressValidator = require ('express-validator');
 // const flash = require('connect-flash');
 // const LocalStrategy=require('passport-local').Strategy;
 const logger = require('morgan');
-const mongo=require('mongodb');
+const mongo = require('mongodb');
 const mongoose = require('mongoose');
 // const passport=require('passport');
 // const path = require('path');
+const Promise = require('bluebird');
 // const session=require('express-session');
+
+const Inventory = require('./api/models/Inventory.js');
 
 const PORT = process.env.PORT || 3000;
 
@@ -21,7 +24,9 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 // body-parser to make the data easier to work with; morgan for logging
+// value can be a string or array (when extended is false), or any type (when extended is true)
 app.use(logger('dev'));
+app.use(bodyParser.text());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -42,23 +47,25 @@ app.use(express.static('public'));
 // app.use(passport.session());
 // ===============================================
 
-// Express Validator
-app.use(expressValidator({
-  errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
+// ===============================================
+// EXPRESS VALIDATOR validates input on forms
+// app.use(expressValidator({
+//   errorFormatter: function(param, msg, value) {
+//       var namespace = param.split('.')
+//       , root    = namespace.shift()
+//       , formParam = root;
 
-    while(namespace.length) {
-      formParam += '[' + namespace.shift() + ']';
-    }
-    return {
-      param : formParam,
-      msg   : msg,
-      value : value
-    };
-  }
-}));
+//     while(namespace.length) {
+//       formParam += '[' + namespace.shift() + ']';
+//     }
+//     return {
+//       param : formParam,
+//       msg   : msg,
+//       value : value
+//     };
+//   }
+// }));
+// ===============================================
 
 // ===============================================
 // SHOWS ERROR MESSAGES
@@ -88,6 +95,7 @@ else {
 	mongoose.connect(databaseuri);
 }
 
+mongoose.Promise = Promise;
 const db = mongoose.connection;
 // if there is an error connecting to the database, show error
 db.on('error', function(error) {
@@ -98,9 +106,48 @@ db.once('open', function() {
 	console.log('Mongoose connection successful.');
 });
 
-// routing -------------------------------------------
+// ROUTING
+// ===============================================
 var auth = require('./api/routes/auth');
 app.use('/auth', auth);
+
+
+// Route for GET request
+// app.get("/supplyform", function(req, res) {
+// 	console.log("hello")
+// 	// find and retrieve all records
+// 	Inventory.find({}).exec((err, doc) => {
+// 		if (err) { console.log(err) }
+// 		else { res.send(doc) }
+// 	});
+// });
+
+// app.get("/supplyform", function(req, res) {    
+//    // find and retrieve all records
+//    Inventory.find({}).exec((err, doc) => {
+// 		console.log('HELLO')
+//        if (err) { console.log(err)
+//            // res.send(doc)
+//        }
+//    });
+// });
+
+// app.get("/supplyform", function(req, res) {    
+//   // find and retrieve all records
+//   Inventory.find({}).exec((err, doc) => {
+//       if (err) { console.log(err)
+//           console.log(doc)
+//       }
+//   });
+// });
+
+app.get("/supplyform", function(req, res) {
+   // find and retrieve all records
+   Inventory.find({}).exec((err, doc) => {
+       if (err) { console.log(err) }
+       console.log(doc)
+   });
+});
 
 
 // START SERVER LISTEN
