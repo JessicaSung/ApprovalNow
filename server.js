@@ -34,64 +34,17 @@ app.use(cookieParser());
 // makes public folder a static directory
 app.use(express.static('public'));
 
-// ===============================================
-// SESSION STORAGE
-// // Express Session
-// app.use(session({
-// 	secret: 'secret',
-// 	saveUninitialized: true,
-// 	resave: true
-// }));
-
-// app.use(passport.initialize());
-// app.use(passport.session());
-// ===============================================
-
-// ===============================================
-// EXPRESS VALIDATOR validates input on forms
-// app.use(expressValidator({
-//   errorFormatter: function(param, msg, value) {
-//       var namespace = param.split('.')
-//       , root    = namespace.shift()
-//       , formParam = root;
-
-//     while(namespace.length) {
-//       formParam += '[' + namespace.shift() + ']';
-//     }
-//     return {
-//       param : formParam,
-//       msg   : msg,
-//       value : value
-//     };
-//   }
-// }));
-// ===============================================
-
-// ===============================================
-// SHOWS ERROR MESSAGES
-// // Connect Flash
-// app.use(flash());
-
-// // Global Vars
-// app.use(function(req, res,next){
-// 	res.locals.success_msg = req.flash('success_msg');
-// 	res.locals.error_msg = req.flash('error_msg');
-// 	res.locals.error = req.flash('error');
-// 	next();
-// });
-// ===============================================
-
 
 // MONGOOSE DATABASE CONFIGURATION
 // ===============================================
 // local MongoDB
 const databaseuri = 'mongodb://localhost/ApprovalDB';
 
-// if Heroku mLab exists, use Heroku database
+// this executes if the app is executed on Heroku
 if (process.env.MONGODB_URI) {
 	console.log('Connection to ', process.env.MONGODB_URI)
 	mongoose.connect(process.env.MONGODB_URI);
-} // else, use local MongoDB database
+} // this executes if the app is executed on local machine
 else {
 	console.log('Connecting to ', databaseuri)
 	mongoose.connect(databaseuri);
@@ -113,43 +66,14 @@ db.once('open', function() {
 var auth = require('./api/routes/auth');
 app.use('/auth', auth);
 
-
 // Route for GET request
-// app.get("/supplyform", function(req, res) {
-// 	console.log("hello")
-// 	// find and retrieve all records
-// 	Inventory.find({}).exec((err, doc) => {
-// 		if (err) { console.log(err) }
-// 		else { res.send(doc) }
-// 	});
-// });
-
-// app.get("/supplyform", function(req, res) {    
-//    // find and retrieve all records
-//    Inventory.find({}).exec((err, doc) => {
-// 		console.log('HELLO')
-//        if (err) { console.log(err)
-//            // res.send(doc)
-//        }
-//    });
-// });
-
-// app.get("/supplyform", function(req, res) {    
-//   // find and retrieve all records
-//   Inventory.find({}).exec((err, doc) => {
-//       if (err) { console.log(err)
-//           console.log(doc)
-//       }
-//   });
-// });
-
 app.get("/supplyform", function(req, res) {
    // find and retrieve all records
    Inventory.find({}).exec((err, doc) => {
        if (err) { console.log(err) }
        else { 
-       		res.json(doc) 
-       		console.log(doc)
+       		res.json(doc) ;
+       		console.log(doc);
        	}
    });
 });
