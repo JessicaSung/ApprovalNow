@@ -52,7 +52,7 @@ export default class LoginSignUp extends Component {
 			password: this.state.password 
 		}).then((response) => {
 			console.log(response);
-			this.props.router.push('signupsuccessful');
+			this.props.router.push('supplyform');
 		}).catch(function(err) {
 			console.error(err);
 		});

@@ -6,6 +6,11 @@ body {
 	float: right;
 }
 
+.inline {
+	display: flex;
+    justify-content: space-between;
+}
+
 .nav>li>a:hover {
 	background-color: #286090;
 	color: white;

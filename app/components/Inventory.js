@@ -21,11 +21,13 @@ export default class Inventory extends Component {
 	}
 
 	handleChange(event) {
-		let newInventory = this.state.inventory;
-		newInventory[event.target.name].qty = event.target.value;
-		this.setState({
-			inventory: newInventory
-		});
+		if (event.target.value > -1) {
+			let newInventory = this.state.inventory;
+			newInventory[event.target.name].qty = event.target.value;
+			this.setState({
+				inventory: newInventory
+			});
+		}		
 	}
 
 	render() {

@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
-const Inventory = mongoose.Schema({
-	_id: {
-		type: String,
-		index: true
-	},
+const InventorySchema = mongoose.Schema({
 	item: {
 		type: String
 	},
@@ -13,4 +9,4 @@ const Inventory = mongoose.Schema({
 	}
 });
 
-module.exports = mongoose.model('Inventory', Inventory);
+module.exports = mongoose.model('Inventory', InventorySchema);
