@@ -89,9 +89,11 @@ const databaseuri = 'mongodb://localhost/ApprovalDB';
 
 // if Heroku mLab exists, use Heroku database
 if (process.env.MONGODB_URI) {
+	console.log('Connection to ', process.env.MONGODB_URI)
 	mongoose.connect(process.env.MONGODB_URI);
 } // else, use local MongoDB database
 else {
+	console.log('Connecting to ', databaseuri)
 	mongoose.connect(databaseuri);
 }
 
@@ -145,7 +147,10 @@ app.get("/supplyform", function(req, res) {
    // find and retrieve all records
    Inventory.find({}).exec((err, doc) => {
        if (err) { console.log(err) }
-       console.log(doc)
+       else { 
+       		res.json(doc) 
+       		console.log(doc)
+       	}
    });
 });
 

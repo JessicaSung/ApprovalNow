@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Inventory = mongoose.Schema({
 	_id: {
-		type: String,
+		type: Number,
 		index: true
 	},
 	item: {
