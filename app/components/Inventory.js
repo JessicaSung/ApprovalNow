@@ -6,18 +6,14 @@ export default class Inventory extends Component {
 	constructor() {
 		super();
 		this.state = {
-			inventory: [
-			     {name: "Pencil", id: 1, qty: 0},
-			     {name: "Paper", id: 2, qty: 0},
-			     {name: "Eraser", id: 3, qty: 0}
-			]
+			inventory: []
 		}
 		this.handleChange = this.handleChange.bind(this);
 	}
 
 	componentDidMount() {
 		return axios.get("/supplyform").then((response) => {
-			console.log(response);
+			this.setState({inventory: response.data});
 		});
 	}
 
@@ -57,7 +53,7 @@ export default class Inventory extends Component {
 								</tr>																			
 							</thead>
 							<tbody id="supplyItem">								
-								{this.state.inventory.map((item, index) => <InventoryItem key={item.id} item={item} index={index} handleChange={this.handleChange} />)}
+								{this.state.inventory.map((item, index) => <InventoryItem key={item._id} item={item} index={index} handleChange={this.handleChange} />)}
 							</tbody>
 						</table>
 		  			</div>

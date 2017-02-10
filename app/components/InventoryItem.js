@@ -5,7 +5,7 @@ export default class InventoryItem extends Component {
 		return (
 			<tr>
 				<td>
-					{this.props.item.name}
+					{this.props.item.item}
 				</td>
 				<td>
 					<input 
