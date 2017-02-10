@@ -13,6 +13,7 @@ export default class Inventory extends Component {
 
 	componentDidMount() {
 		return axios.get("/supplyform").then((response) => {
+			console.log(response);
 			this.setState({inventory: response.data});
 		});
 	}
