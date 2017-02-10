@@ -82,5 +82,5 @@ app.get("/supplyform", function(req, res) {
 // START SERVER LISTEN
 // ===============================================
 app.listen(PORT, () => {
-	console.log('Server started on port: ', PORT);
+	console.log('Listening On Port: ', PORT);
 });
