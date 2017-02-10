@@ -7,14 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack ./webpack.config.js --progress --colors",
     "start": "nodemon server.js",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "dev": "webpack -w ./webpack.config.js --progress --colors"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JessicaSung/ApprovalNow.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "JessicaSung",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JessicaSung/ApprovalNow/issues"

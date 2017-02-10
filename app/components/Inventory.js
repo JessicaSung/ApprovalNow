@@ -8,7 +8,8 @@ export default class Inventory extends Component {
 		this.state = {
 			inventory: [
 			     {name: "Pencil", id: 1, qty: 0},
-			     {name: "Paper", id: 2, qty: 0}
+			     {name: "Paper", id: 2, qty: 0},
+			     {name: "Eraser", id: 3, qty: 0}
 			]
 		}
 		this.handleChange = this.handleChange.bind(this);
@@ -21,16 +22,25 @@ export default class Inventory extends Component {
 	}
 
 	handleChange(event) {
-		if (event.target.value > -1) {
-			let newInventory = this.state.inventory;
-			newInventory[event.target.name].qty = event.target.value;
-			this.setState({
-				inventory: newInventory
-			});
+		if (event.target.value > -1) {			
+			const index = parseInt(event.target.name);
+			let newState = {
+				...this.state, 
+				inventory: [
+					...this.state.inventory.slice(0, index),
+					{
+						...this.state.inventory[index], 
+						qty: event.target.value
+					},
+					...this.state.inventory.slice(index+1)
+				]
+			}
+			this.setState(newState);
 		}		
 	}
 
 	render() {
+		console.log(this.state);
 		return (
 			<div>
 				<div className="panel panel-primary pageWide">
