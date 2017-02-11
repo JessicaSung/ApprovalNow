@@ -6,6 +6,7 @@ import LoginSignOut from 'LoginSignOut';
 import LoginSignUp from 'LoginSignUp';
 import LoginSignUpSuccessful from 'LoginSignUpSuccessful';
 import Main from 'Main';
+import PRSubmitSuccessful from 'PRSubmitSuccessful';
 import PurchaseRequisition from 'PurchaseRequisition';
 import SupplyForm from 'SupplyForm';
 import Welcome from 'Welcome';
@@ -19,6 +20,7 @@ module.exports = (
 			<Route path="signin" component={LoginSignIn} />
 			<Route path="logout" component={LoginSignOut} />
 			<Route path="purchaserequisition" component={PurchaseRequisition} />
+			<Route path="prsubmitsuccessful" component={PRSubmitSuccessful} />
 			<IndexRoute component={Welcome} />
 		</Route>
 	</Router>
