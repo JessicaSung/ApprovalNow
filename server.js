@@ -63,20 +63,11 @@ db.once('open', function() {
 
 // ROUTING
 // ===============================================
-var auth = require('./api/routes/auth');
+const auth = require('./api/routes/auth');
 app.use('/auth', auth);
 
-// Route for GET request
-app.get("/supplyform", function(req, res) {
-   // find and retrieve all records
-   Inventory.find({}).exec((err, doc) => {
-       if (err) { console.log(err) }
-       else { 
-       		res.json(doc) ;
-       		// console.log(doc);
-       	}
-   });
-});
+const api = require('./api/routes/api');
+app.use('/api', api);
 
 
 // START SERVER LISTEN
