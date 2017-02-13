@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 export default class InventoryRequested extends Component {
 	render() {
-		// console.log(this.props.item)
 		return (
 			<tr>
 				<td>

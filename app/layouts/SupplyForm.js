@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import axios from 'axios';
 import InventoryItem from 'InventoryItem';
+
 
 export default class Inventory extends Component {
 	constructor() {
@@ -41,7 +43,6 @@ export default class Inventory extends Component {
 		return axios.post('api/inventory/supplyrequest', {
 			inventory: this.state.inventory
 		}).then((response) => {
-			console.log(response, 'lalala');
 			this.props.router.push('purchaserequisition');
 		}).catch(function(err) {
 			console.error(err);
@@ -49,7 +50,6 @@ export default class Inventory extends Component {
 	}
 
 	render() {
-		// console.log(this.state);
 		return (
 			<div className="pageBlock">
 				<div className="panel panel-primary pageWide">

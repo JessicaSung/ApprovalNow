@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import axios from 'axios';
-import {withRouter} from 'react-router';
+
 
 export default class LoginSignUp extends Component {
 	constructor() {
