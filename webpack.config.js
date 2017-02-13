@@ -6,8 +6,8 @@ module.exports = {
   	resolve: {
   		root: __dirname,
   		alias: {
-        Inventory: 'app/components/Inventory.js',
         InventoryItem: 'app/components/InventoryItem.js',
+        InventoryRequested: 'app/components/InventoryRequested.js',
         LoginSignIn: 'app/layouts/LoginSignIn.js',
         LoginSignOut: 'app/layouts/LoginSignOut.js',
         LoginSignUp: 'app/layouts/LoginSignUp.js',
@@ -18,7 +18,6 @@ module.exports = {
         PurchaseRequisition: 'app/layouts/PurchaseRequisition.js',
   			routes: 'app/config/routes.js',
         SupplyForm: 'app/layouts/SupplyForm.js',
-        SupplySelected: 'app/components/SupplySelected.js',
         User: 'api/models/User.js',
         Welcome: 'app/layouts/Welcome.js'
   		},

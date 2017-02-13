@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link, IndexLink, withRouter } from 'react-router';
 import axios from 'axios';
 
-
 import InventoryItem from 'InventoryItem';
+import InventoryRequested from 'InventoryRequested';
 
 export default class PurchaseRequisition extends Component {
 	constructor() {
@@ -17,7 +17,7 @@ export default class PurchaseRequisition extends Component {
 	componentDidMount() {
 		return axios.get("/api/inventory/supplyrequest").then((response) => {
 			console.log(response);
-			this.setState({	inventory: response.data });
+			this.setState({	inventory: response.data.inventory });
 		});
 	}
 
@@ -26,6 +26,7 @@ export default class PurchaseRequisition extends Component {
 	}
 
 	render() {
+		console.log(this.state);
 		return (
 			<div className="pageBlock">	
 				<h3>PCE Paragon Solutions, Inc.</h3>
@@ -45,8 +46,9 @@ export default class PurchaseRequisition extends Component {
 								<th>Quantity</th>
 							</tr>																			
 						</thead>
-						<tbody id="supplyItem">								
-							{this.state.inventory.map((item, index) => <InventoryItem key={item._id} item={item} index={index} handleChange={this.handleChange} />)}
+						<tbody id="supplyItem">
+							{this.state.inventory.map((item, index) => <InventoryRequested key={item._id} item={item} index={index} handleChange={this.handleChange} />)}								
+							
 						</tbody>
 					</table>
 					<button onClick={this.handleClick} className="floatRight btn btn-primary btn-lg">Submit</button>

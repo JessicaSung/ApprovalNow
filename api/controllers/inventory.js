@@ -52,7 +52,7 @@ Supplyrequest.collection.insert({inventory: inventoryArray});
 });
 
 router.get('/supplyrequest', function(req, res) {
-	Supplyrequest.find({}).exec((err, docs) => {
+	Supplyrequest.find({}).sort({_id:-1}).limit(1).exec((err, docs) => {
 		if (err) { console.log(err) }
        	else { res.json(docs[docs.length - 1]) }
 	});
