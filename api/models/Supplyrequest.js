@@ -1,11 +1,8 @@
 const mongoose = require('mongoose');
 
 const SupplyrequestSchema = mongoose.Schema({
-	item: {
-		type: String
-	},
-	qty: {
-		type: Number
+	inventory: {
+		type: Array
 	}
 });
 

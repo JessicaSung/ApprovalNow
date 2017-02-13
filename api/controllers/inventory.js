@@ -20,19 +20,35 @@ router.get('/', function(req, res) {
 
 router.post('/supplyrequest', function(req, res) {
 	// const newOrder = new Supplyrequest(req.body);
-	// console.log(req.body.inventory);
+	// console.log(req.body);
 	const inventory = req.body.inventory;
+	const inventoryArray = [];
 	inventory.forEach((data) => {
-		if (parseInt(data.qty) > 0 ) {
-			const newOrder = new Supplyrequest(data);
-				newOrder.save(function(err, doc) {
-					if (err) { console.log(err) }
-       				else { res.json(doc);
-       				console.log(doc); }
-				});	
+		if (parseInt(data.qty) > 0) {
+			inventoryArray.push(data);
+			// console.log(Supplyrequest.collection);
 		}
-	})
+	});
+Supplyrequest.collection.insert({inventory: inventoryArray});
+		// console.log(inventoryArray);
+		
+		// // inserts each item into a new document
+		// console.log(data);
+		// if (parseInt(data.qty) > 0 ) {
+		// 	Supplyrequest.insertMany([{
+		// 		item: data.item,
+		// 		qty: data.qty
+		// 	}]);
 
+			// inserts one item only
+			// const newOrder = new Supplyrequest(data);
+			// newOrder.save(function(err, doc) {
+				// if (err) { console.log(err) }
+				// else { res.json(doc);
+					// console.log(doc); }
+			// });	
+		// }
+	
 });
 
 router.get('/supplyrequest', function(req, res) {
