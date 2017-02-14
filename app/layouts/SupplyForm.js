@@ -11,7 +11,7 @@ export default class Inventory extends Component {
 			inventory: []
 		}
 		this.handleChange = this.handleChange.bind(this);
-		this.handleClick = this.handleClick.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	componentDidMount() {
@@ -39,7 +39,9 @@ export default class Inventory extends Component {
 		}		
 	}
 
-	handleClick() {
+	handleSubmit(event) {
+		event.preventDefault();
+				
 		return axios.post('api/inventory/supplyrequest', {
 			inventory: this.state.inventory
 		}).then((response) => {
@@ -58,18 +60,20 @@ export default class Inventory extends Component {
 		  			</div>
 
 		  			<div className="panel-body">
-						<table className="table" id="supplyList">
-							<thead>
-								<tr>
-									<th>Item Name</th>
-									<th>Quantity</th>
-								</tr>																			
-							</thead>
-							<tbody id="supplyItem">								
-								{this.state.inventory.map((item, index) => <InventoryItem key={item._id} item={item} index={index} handleChange={this.handleChange} />)}
-							</tbody>
-						</table>
-						<button onClick={this.handleClick} className="floatRight btn btn-primary btn-lg">Add Items</button>
+		  				<form method="post" onSubmit={this.handleSubmit}>
+							<table className="table" id="supplyList">
+								<thead>
+									<tr>
+										<th>Item Name</th>
+										<th>Quantity</th>
+									</tr>																			
+								</thead>
+								<tbody id="supplyItem">								
+									{this.state.inventory.map((item, index) => <InventoryItem key={item._id} item={item} index={index} handleChange={this.handleChange} />)}
+								</tbody>
+							</table>
+							<button type="submit" className="floatRight btn btn-primary">Add Items</button>
+						</form>
 		  			</div>
 				</div>
 			</div>		
