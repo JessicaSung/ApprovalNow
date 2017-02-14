@@ -10,8 +10,8 @@ In future releases, employees will be able to log in and request supplies throug
 
 #### Future Features
 * Business Travel
-* PTO
-* support multiple sites and legal entities
+* PTO requests
+* Support multiple sites and legal entities
 
 #### Technology Used
 * React.js
