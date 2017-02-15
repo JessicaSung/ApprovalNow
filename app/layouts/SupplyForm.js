@@ -72,7 +72,7 @@ export default class Inventory extends Component {
 									{this.state.inventory.map((item, index) => <InventoryItem key={item._id} item={item} index={index} handleChange={this.handleChange} />)}
 								</tbody>
 							</table>
-							<button type="submit" className="floatRight btn btn-primary">Add Items</button>
+							<button type="submit" className="floatRight btn btn-primary btn-lg">Add Items</button>
 						</form>
 		  			</div>
 				</div>

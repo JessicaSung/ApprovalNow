@@ -30,4 +30,6 @@ In future releases, employees will be able to log in and request supplies throug
 #### Disclaimer
 All company names are trademarks or registered trademarks of their respective companies. This application is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Foxconn or any of its subsidiaries or its affiliates.
 
+To protect the privacy of certain individuals the names and identifying details have been changed. Any resemblance to actual persons is purely coincidental.
+
 &copy; 2017 Jessica Sung
