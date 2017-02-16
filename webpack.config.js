@@ -6,6 +6,7 @@ module.exports = {
   	resolve: {
   		root: __dirname,
   		alias: {
+        Footer: 'app/components/Footer.js',
         InventoryItem: 'app/components/InventoryItem.js',
         InventoryRequested: 'app/components/InventoryRequested.js',
         LoginSignIn: 'app/layouts/LoginSignIn.js',
@@ -18,7 +19,6 @@ module.exports = {
         PurchaseRequisition: 'app/layouts/PurchaseRequisition.js',
   			routes: 'app/config/routes.js',
         SupplyForm: 'app/layouts/SupplyForm.js',
-        User: 'api/models/User.js',
         Welcome: 'app/layouts/Welcome.js'
   		},
   		extensions: ['', '.js', '.jsx']
