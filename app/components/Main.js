@@ -27,7 +27,8 @@ export default class Main extends Component {
 				<Nav username={this.state.username}/>
 				<div className="pageNarrow" style={{clear: 'both'}}>
 					{childrenWithProps}
-				</div>				
+				</div>
+				<div id="footer"></div>				
 			</div>		
 		);
 	}
