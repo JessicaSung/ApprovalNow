@@ -44,6 +44,8 @@ export default class PurchaseRequisition extends Component {
 										<tr>
 											<th>Office Supply Item</th>
 											<th>Quantity</th>
+											<th>Price</th>
+											<th>Subtotal</th>
 										</tr>																			
 									</thead>
 									<tbody id="supplyItem">

@@ -10,6 +10,12 @@ export default class InventoryRequested extends Component {
 				<td>
 					{this.props.item.qty}
 				</td>
+				<td>
+					
+				</td>
+				<td>
+
+				</td>
 			</tr>
 		);
 	}
