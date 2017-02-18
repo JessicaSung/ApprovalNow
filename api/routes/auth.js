@@ -31,7 +31,7 @@ router.post('/login', function(req, res) {
         res.status(500).send(err) 
       };
 
-      res.status(201).send({isMatch: isMatch});
+      res.status(201).send({isMatch: isMatch, name: user.name});
     });
   });  
   console.log(req.body.username);
