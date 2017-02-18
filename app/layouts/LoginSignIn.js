@@ -31,6 +31,8 @@ export default class LoginSignIn extends Component {
 			if(response.data.isMatch) {
 				this.props.onChangeUsername(this.state.username);
 				this.props.router.push('supplyform');
+				sessionStorage.setItem('username', this.state.username);
+				sessionStorage.setItem('name', response.data.name);
 			}
 		}).catch(function(err) {
 			console.error(err);

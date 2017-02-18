@@ -29,6 +29,8 @@ router.post('/supplyrequest', function(req, res) {
 	});
 	
 	Supplyrequest.collection.insert({ inventory: inventoryArray });
+
+	res.json({ OK: 'ok' });
 });
 
 router.get('/supplyrequest', function(req, res) {
