@@ -53,7 +53,7 @@ export default class LoginSignIn extends Component {
 	render() {
 		return (
 			<div className="pageBlock">
-				<h3>Account Login</h3><br />
+				<h3>Login</h3><br />
 				<form method="post" onSubmit={this.handleSubmit}>
 					<div className="form-group">
 						<label>Username</label>
