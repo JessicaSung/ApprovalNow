@@ -29,7 +29,7 @@ export default class PurchaseRequisition extends Component {
 		console.log(this.state);
 		return (
 			<div className="pageBlock">	
-				<h3>PCE Paragon Solutions, Inc.</h3>
+				<h3>Subsidiary</h3>
 				<h2 className="text-center">Purchase Requisition Form</h2>
 								
 				<form>
