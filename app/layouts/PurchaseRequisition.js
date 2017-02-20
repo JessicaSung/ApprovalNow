@@ -35,7 +35,7 @@ export default class PurchaseRequisition extends Component {
 				<form>
 					<div className="pageNarrow">
 						<h4>PO #: </h4>
-						<h4>Date: </h4>				
+						<h4>Date: { Date().split(' ').slice(1,4).join(' ') }</h4>				
 						
 						<div className="panel panel-default">
 							<div className="panel-body">
