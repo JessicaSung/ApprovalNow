@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {withRouter} from 'react-router';
+import { Link, withRouter } from 'react-router';
 
 export default class LoginSignIn extends Component {
 	constructor(name) {
@@ -83,6 +83,13 @@ export default class LoginSignIn extends Component {
 						Submit
 					</button>
 				</form>
+
+				<p className="text-center">
+					Not a member?
+					<Link to="/signup">
+						Join now
+					</Link>
+				</p>
 			</div>
 		);
 	}
