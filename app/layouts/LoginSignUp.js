@@ -53,7 +53,7 @@ export default class LoginSignUp extends Component {
 			password: this.state.password 
 		}).then((response) => {
 			console.log(response);
-			this.props.router.push('supplyform');
+			this.props.router.push('signupsuccessful');
 		}).catch(function(err) {
 			console.error(err);
 		});
@@ -80,7 +80,7 @@ export default class LoginSignUp extends Component {
 						<label>Email Address</label>
 						<input 
 							name="email"
-							placeholder="first.last@foxconn.com" 
+							placeholder="first.last@example.com" 
 							type="email" 
 							className="form-control" 							
 							value={this.state.email} 
