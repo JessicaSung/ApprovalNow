@@ -1,5 +1,5 @@
+const bcrypt   = require('bcryptjs');
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
 
 const UserSchema = mongoose.Schema({
 	name: {
@@ -35,10 +35,6 @@ module.exports.getUserByUsername = function(username, callback) {
 	const query = {"username": username};
 	User.findOne(query, callback);
 }
-
-// module.exports.getUserByID=function(id, callback){
-// 	User.findById(id, callback);
-// }
 
 // Compares input password with hashed database password,
 // if they don't match, show error, otherwise log in correctly
