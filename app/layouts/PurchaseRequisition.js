@@ -15,7 +15,7 @@ export default class PurchaseRequisition extends Component {
 	}
 
 	componentDidMount() {
-		return axios.get("/api/inventory/supplyrequest").then((response) => {
+		return axios.get('/api/inventory/supplyrequest').then((response) => {
 			console.log(response);
 			this.setState({	inventory: response.data.inventory });
 		});
@@ -23,6 +23,16 @@ export default class PurchaseRequisition extends Component {
 
 	handleClick() {
 		this.props.router.push('prsubmitsuccessful');
+	}
+
+	renderPO() {
+		// ADD THIS: axios.get '/api/inventory/purchaserequisition' to display the next transaction number
+
+		const numLength = 0;
+		let transNum = (response.data.length + 1).toString();
+		while (transNum.length < numLength) transNum = '0' + transNum;
+
+		const formattedTransNum = 'PGP17-' + rows;
 	}
 
 	render() {

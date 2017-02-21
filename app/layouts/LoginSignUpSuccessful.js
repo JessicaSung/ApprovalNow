@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
 
 export default class LoginSignUpSuccessful extends Component {
-	componentWillMount() {
-		if (this.props.username === '') {
-			this.props.router.push('/');
-		}
-	}
-
 	render() {		
 		return (
 			<div className="pageBlock">
-				<h3>You have successfully created an account.</h3>
-				<h3>Please write down your username and password in a safe place.</h3>
+				<h3>Account successfully created</h3>
+				<hr />
+				<p>Thank you for your registration! Your account is now ready for use.</p>
 			</div>
 		);
 	}

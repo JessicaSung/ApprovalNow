@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, IndexLink } from 'react-router';
 
 export default class Nav extends Component {
-	renderUser() {
+	renderNav() {
 		if (sessionStorage.getItem('username')) {
 			const name = sessionStorage.getItem('name');
 			return (
@@ -25,7 +25,7 @@ export default class Nav extends Component {
 			        <nav>
 			          <ul className="nav nav-pills pull-right" style={{marginTop: 15}}>
 			            <li><IndexLink to="/" activeStyle={{backgroundColor: '#337AB7', color: 'white', fontWeight: 'bold'}}>Home</IndexLink></li>
-			            {this.renderUser()}
+			            {this.renderNav()}
 			          </ul>
 			        </nav>
 	      		</div>

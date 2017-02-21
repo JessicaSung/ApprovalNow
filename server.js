@@ -11,7 +11,7 @@ const mongo = require('mongodb');
 const mongoose = require('mongoose');
 // const passport=require('passport');
 // const path = require('path');
-const Promise = require('bluebird');
+const bluebird = require('bluebird');
 // const session=require('express-session');
 
 const Inventory = require('./api/models/Inventory.js');
@@ -50,7 +50,7 @@ else {
 	mongoose.connect(databaseuri);
 }
 
-mongoose.Promise = Promise;
+mongoose.Promise = bluebird;
 const db = mongoose.connection;
 // if there is an error connecting to the database, show error
 db.on('error', function(error) {
