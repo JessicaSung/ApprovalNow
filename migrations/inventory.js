@@ -3,23 +3,22 @@ const mongoose = require('mongoose');
 const Inventory = require('../api/models/Inventory.js');
 
 const databaseuri = 'mongodb://localhost/ApprovalDB';
-// this executes if the app is executed on Heroku
+
 if (process.env.MONGODB_URI) {
-	console.log('Connection to ', process.env.MONGODB_URI)
+	console.log('Connection to ', process.env.MONGODB_URI);
 	mongoose.connect(process.env.MONGODB_URI);
-} // this executes if the app is executed on local machine
-else {
-	console.log('Connecting to ', databaseuri)
+} else {
+	console.log('Connecting to ', databaseuri);
 	mongoose.connect(databaseuri);
 }
 
 mongoose.Promise = Promise;
 const db = mongoose.connection;
-// if there is an error connecting to the database, show error
+
 db.on('error', function(error) {
 	console.log('Mongoose Error: ' , error);
 });
-// if connected to the database successfully, notify user
+
 db.once('open', function() {
 	console.log('Mongoose connection successful.');
 });
@@ -76,8 +75,8 @@ var rawDocuments = [
 ];
 
 Inventory.insertMany(rawDocuments)
-	.then(function(mongooseDocuments) {
-		console.log(mongooseDocuments);
-	}).catch(function(err) {
-		console.log("Error inserting collections.")
-	});
+.then(function(mongooseDocuments) {
+	console.log(mongooseDocuments);
+}).catch(function(err) {
+	console.log("Error inserting collections.")
+});
